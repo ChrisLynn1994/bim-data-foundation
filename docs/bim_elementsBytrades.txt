@@ -1,0 +1,43 @@
+BIM Element By Trades (majorities)
+-----------------------------------
+🧱 Architectural Elements
+
+Wall
+
+Door
+
+Window
+
+Floor
+
+Roof
+
+Stair
+
+Curtain Wall
+
+🏗️ Structural Elements
+
+Column
+
+Beam
+
+Slab
+
+Foundation
+
+Brace
+
+🔧 MEP Elements
+
+Duct
+
+Pipe
+
+Cable Tray
+
+Light Fixture
+
+Air Terminal
+
+Plumbing Fixture
