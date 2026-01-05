@@ -14,8 +14,8 @@ automation, and future AI/ML workflows across building and infrastructure projec
 This repository is designed for:
 - BIM professionals who want to think in data, not geometry
 - Data engineers who need structured, reliable BIM datasets
-- AI/ML engineers who require clean features, labels, and relationships
-- Automated agents that consume BIM-derived tables and graphs
+- AI/ML engineers who require clean features, labels, and relationships of BIM data
+- Automated agents that consume BIM-derived tables and graphs which holding reliable BIM datasets
 
 The schema prioritizes both human interpretability and machine usability.
 
@@ -36,6 +36,7 @@ allowing relational queries and graph-based reasoning without duplication.
 ### 4. What remains stable over time?
 The following principles are treated as immutable:
 - Element identity (stable IDs)
+- Domain Assets (Buildings, Infrastructure)
 - Discipline semantics (Architecture, Structure, MEP)
 - Separation of features and labels
 - Tool-agnostic schema design
