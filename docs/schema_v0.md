@@ -16,6 +16,11 @@ This keeps the schema **clean, scalable, and future-proof**.
 | parameter |
 
 ### Logical Table Level (expanded)
+parameter
+├── identity parameters
+├── geometric parameters
+├── material parameters
+└── context parameters
 
 | Logical Column | Comes from |
 |---------------|-----------|
