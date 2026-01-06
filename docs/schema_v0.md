@@ -1,97 +1,73 @@
+## 1️⃣ Why Schema Compliance Matters
 
-This keeps the schema **clean, scalable, and future-proof**.
+AI/ML pipelines, data warehouses, and validation tools require:
+
+- explicit data types
+- unambiguous descriptions
+- unit clarity
+
+Therefore, every dataset column must comply with:
+column_name
+data_type
+description
+unit (if any)
+
+## 2️⃣ Canonical → Physical Schema Mapping
+
+### Parameter Expansion Rule (Day 2 Rule)
+
+> `parameter` is decomposed into **multiple physical columns**,  
+> each with a **single, stable meaning**.
 
 ---
 
-## 3️⃣ Day 2 Canonical → Logical Mapping
+## 3️⃣ Day 2 Canonical Dataset Schema
 
-### Canonical Level (unchanged)
+### 📊 Element Core Table (Draft v0.1)
 
-| Canonical |
-|----------|
-| id |
-| discipline |
-| category |
-| element |
-| parameter |
+| column_name | data_type | description | unit |
+|------------|----------|-------------|------|
+| id | string | Unique identifier for the BIM element | — |
+| discipline | string | Engineering discipline (Architecture / Structure / MEP) | — |
+| category | string | BIM category of the element (Column, Wall, Pipe, etc.) | — |
+| element_name | string | Human-readable name of the physical element | — |
+| height | float | Vertical dimension of the element | mm |
+| width | float | Horizontal width of the element | mm |
+| depth | float | Horizontal depth of the element | mm |
+| area | float | Surface area of the element (if applicable) | m² |
+| volume | float | Solid volume of the element (if applicable) | m³ |
+| material | string | Primary construction material | — |
+| level | string | Building level or vertical context | — |
 
-### Logical Table Level (expanded)
-parameter
-├── identity parameters
-├── geometric parameters
-├── material parameters
-└── context parameters
+---
 
-| Logical Column | Comes from |
-|---------------|-----------|
+## 4️⃣ Mapping Back to Canonical Thinking
+
+| Canonical Concept | Physical Columns |
+|------------------|-----------------|
 | id | id |
 | discipline | discipline |
 | category | category |
-| element_name | element |
-| height | parameter (geometry) |
-| width | parameter (geometry) |
-| volume | parameter (geometry) |
-| material | parameter (material) |
-| level | parameter (context) |
+| element | element_name |
+| parameter | height, width, depth, area, volume, material, level |
 
-👉 Canonical thinking is preserved  
-👉 Table becomes AI-ready
+👉 Canonical model is **preserved**  
+👉 Schema is now **machine-validated**
 
 ---
 
-## 4️⃣ Example: One Element → One Row
+## 5️⃣ Example Row (Conceptual)
 
-**Element:** Structural Column
-
-| Column | Value |
-|------|------|
-| id | STR_COL_001 |
-| discipline | Structure |
-| category | Column |
-| element_name | Structural Column |
-| height | 4200 |
-| width | 400 |
-| volume | 1.68 |
-| material | Concrete |
-| level | L2 |
+| id | discipline | category | element_name | height | width | depth | volume | material | level |
+|----|-----------|----------|--------------|--------|-------|-------|--------|----------|-------|
+| STR_COL_001 | Structure | Column | Structural Column | 4200 | 400 | 400 | 1.68 | Concrete | L2 |
 
 ---
 
-## 5️⃣ Rules for Adding Parameters (Day 2 Rules)
+## 6️⃣ Day 2 Schema Rules (Strict)
 
-1. Parameters must describe reality, not tools
-2. Parameters must have stable meaning over time
-3. Geometry parameters must be numeric
-4. Text parameters must be categorical
-5. Temporary or view-based data is forbidden
-
----
-
-## 6️⃣ What We Explicitly Do NOT Do (Yet)
-
-- ❌ No family/type split
-- ❌ No instance vs type parameters
-- ❌ No cost or schedule
-- ❌ No AI labels
-
-These belong to **later days / weeks**
-
----
-
-## ✅ Outcome of Day 2
-
-By the end of Day 2, we can:
-- Convert `parameter` from concept → columns
-- Build the **first real dataset**
-- Keep the schema:
-  - Simple
-  - Discipline-agnostic
-  - Building & infrastructure compatible
-
----
-
-## ⏭️ Next (Day 3 Preview)
-
-- Identity vs geometry vs context separation
-- Minimal “future-proof” parameter set
-- CSV schema freeze for Phase 0
+1. Every column must declare a data type
+2. Units must be explicit or explicitly absent
+3. One column = one meaning
+4. No tool-specific or temporary columns
+5. Text ≠ numeric (never mix)
