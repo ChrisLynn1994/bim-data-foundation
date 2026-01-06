@@ -6,7 +6,7 @@ Understand BIM Elements as table records and define basic AI-ready columns.
 ---
 
 ## 1️⃣ BIM Element Concept
-- BIM Element = one physical object (object + parameters + behavires)
+- BIM Element = one physical object (object + parameters + behaviors)
 - In table terms: **1 Element = 1 Row**
 - Example: Column, Wall, Beam, Pipe
 
