@@ -20,3 +20,16 @@ Real BIM export (Revit / IFC → CSV).
 
 ## Note
 Data cleaning and normalization are intentionally deferred to Week 3.
+#----------------------------------------------------------------------------
+
+## Data Source Update Note
+
+Due to broken links and heavy CAD-imported geometry in legacy as-built projects,
+Revit 2024 sample projects are used for Phase 0.
+
+Reason:
+- Native Revit elements with reliable parameters
+- Clean version compatibility
+- Suitable for schema and pipeline validation
+
+This decision is limited to Phase 0 only.
