@@ -1,0 +1,52 @@
+# Phase 0 — Week 2 Summary
+## Ingestion Phase Lock
+
+The objective of Week 2 was to ingest real BIM data
+into a pandas-based inspection environment
+without performing any cleaning or transformation.
+
+### Data Source
+
+This project uses a real BIM export (CSV) generated from Revit models
+(host + linked models).
+
+The export represents design-time / as-built BIM data
+prior to any cleaning or transformation.
+
+### Ingestion Status
+
+- Raw BIM export stored under `data/raw/`
+- CSV successfully loaded into pandas
+- Column names verified against schema_v0
+- No transformations or cleaning applied yet
+
+This concludes the ingestion phase.
+
+### 1. Real BIM Data Ingestion
+
+- A real BIM export was selected as the data source
+- Raw CSV was stored without modification
+- Pandas successfully loaded the dataset
+
+### 2. Schema vs Raw Validation
+
+- All schema_v0 columns exist in raw data
+- No extra or missing columns detected
+- Column naming matches exactly
+
+### 3. Initial Data Quality Snapshot
+
+- High null rates observed in geometric fields
+- Mixed physical and non-physical elements detected
+- No data was removed or altered
+
+| Criteria | Status |
+|--------|--------|
+| real data ingested | ✅ |
+| pandas ingestion complete | ✅ |
+| schema alignment verified | ✅ |
+| data untouched | ✅ |
+
+Week 2 ingestion phase is complete and locked.
+All further changes must be applied through
+explicit cleaning rules starting Week 3.
